@@ -3,18 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Ресторан</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/index.css">
 </head>
 <body>
+    <!-- Заголовок сайта -->
     <nav class="navbar">
         <nav class="logo">
             <img src="examples/local_dining.png" alt="logo">
             <p>Ресторан</p>
         </nav>
         <div class="menu">
-            <a href="#" class="home">Home</a>
-            <a href="#" class="about">About</a>
-            <a href="#" class="food">Foods</a>
+            <a href="#" class="home">Домашняя страница</a>
+            <a href="#" class="about">О нас</a>
+            <a href="#" class="food">Блюда</a>
         </div>
         <div class="search">
             <label class="search-lable">
@@ -23,10 +27,48 @@
             <img class="icon" src="examples/search.png" alt="search">     
         </div>
         <div class="icons">
-            <img src="examples/account_circle.png" alt="account" class="icon_account">
-            <img src="examples/sell.png" alt="sell" class="icon_sell">
-            <img src="examples/shopping_cart.png" alt="shopping" class="icon_shopping">
+            <a href="#" class="icon_account">
+                <img src="examples/shopping_cart.png" alt="account">
+            </a>
+            <a href="#">
+                <img src="examples/sell.png" alt="sell" class="icon_sell">
+            </a>
+            <a href="#">
+                <img src="examples/account_circle.png" alt="shopping_card" class="icon_shopping">
+            </a>
         </div>
     </nav>
+
+    <!-- Содержимое страницы -->
+    <div class="view slide-in">
+        <div class="title">
+            <button type="button" class="culinary">Блюда</button>
+            <h1>Поднимите свои кулинарные впечатления на новый уровень</h1>
+            <div class="description">
+                <h2>Дайте волю своему внутреннему шеф-повару и окунитесь в мир исключительных вкусов. Откройте для себя идеальное сочетание современных кулинарных техник.</h2>
+                <div class="buttons">
+                    <button type="button" class="started">Начать</button>
+                </div>
+            </div>
+            <button class="market">
+                <img src="./examples/shopping_bag.png" alt="shopping_bag">
+            </button>
+        </div>
+        <div class="preview">
+            <button class="foods" type="button">
+                <div>
+                    <img src="./examples/fork_spoon.png" alt="fork_spoon">
+                </div>
+                <p id="foods">Lorem ipsum dolor sit.</p>
+            </button>
+            <img id="imagepreview" src="#" alt="">
+            <button class="ingredient" type="button">
+                <div>
+                    <img src="./examples/package_2.png" alt="package_2">
+                </div>
+                <p id="ingredient">Lorem ipsum dolor sit.</p>
+            </button>
+        </div>
+    </div>
 </body>
 </html>
