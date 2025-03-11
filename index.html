@@ -16,7 +16,7 @@
             <p>Ресторан</p>
         </nav>
         <div class="menu">
-            <a href="#" class="home">Домашняя страница</a>
+            <a href="#" class="home active">Домашняя страница</a>
             <a href="#" class="about">О нас</a>
             <a href="#" class="food">Блюда</a>
         </div>
@@ -24,17 +24,19 @@
             <label class="search-lable">
                 <input type="text" class="search-line">
             </label>
-            <img class="icon" src="examples/search.png" alt="search">     
+            <button class="icon" type="button">
+                <img src="examples/search.png" alt="search">     
+            </button>
         </div>
         <div class="icons">
-            <a href="#" class="icon_account">
-                <img src="examples/shopping_cart.png" alt="account">
+            <a href="#" class="icon_shopping">
+                <img src="examples/shopping_cart.png" alt="shopping_card">
             </a>
             <a href="#">
                 <img src="examples/sell.png" alt="sell" class="icon_sell">
             </a>
-            <a href="#">
-                <img src="examples/account_circle.png" alt="shopping_card" class="icon_shopping">
+            <a href="./account.html">
+                <img src="examples/account_circle.png" alt="account" class="icon_account">
             </a>
         </div>
     </nav>
@@ -54,14 +56,14 @@
                 <img src="./examples/shopping_bag.png" alt="shopping_bag">
             </button>
         </div>
-        <div class="preview">
+        <div class="preview slide-in">
             <button class="foods" type="button">
                 <div>
                     <img src="./examples/fork_spoon.png" alt="fork_spoon">
                 </div>
                 <p id="foods">Lorem ipsum dolor sit.</p>
             </button>
-            <img id="imagepreview" src="#" alt="">
+            <img id="imagepreview" src="./examples/eat1.png" alt="">
             <button class="ingredient" type="button">
                 <div>
                     <img src="./examples/package_2.png" alt="package_2">
@@ -70,5 +72,47 @@
             </button>
         </div>
     </div>
+
+    <footer>
+        <nav class="footer_info">
+            <div class="footer_logo">
+                <h2>Ресторан</h2>
+                <p>Добро пожаловать в ресторан, где еда сочетается с творчеством и страстью.</p>
+                <p>Современный кулинарный сайт</p>
+            </div>
+            <div class="footer_contacts">
+                <h2>Подпишитесь на наши новости</h2>
+                <p>Ваша почта</p>
+                <div class="container_email">
+                    <input type="email" id="email_line" placeholder="Введите вашу почту">
+                    <button class="subscribe" type="button">Подписаться</button>
+                </div>
+                <div class="container_links">
+                    <a href="#">
+                        <img src="./examples/Vector.png" alt="">
+                    </a>
+                    <a href="#">
+                        <img src="./examples/Vector.png" alt="">
+                    </a>
+                    <a href="#">
+                        <img src="./examples/Vector.png" alt="">
+                    </a>
+                </div>
+            </div>
+            <div class="footer_explore">
+                <h2>Навигация</h2>
+                <a href="#">О нас</a>
+            </div>
+            <div class="footer_links">
+                <h2>Ссылки</h2>
+                <a href="./account.html">Аккаунт</a>
+                <a href="#">abc2</a>
+                <a href="#">abc3</a>
+                <a href="#">abc4</a>
+                <a href="#">abc5</a>
+            </div>
+        </nav>
+        <div class="separator"></div>
+    </footer>
 </body>
 </html>
