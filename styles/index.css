@@ -53,7 +53,7 @@
     color: rgba(255, 255, 255, 0.7);
 }
 .menu a:hover{
-    text-decoration: underline overline rgba(255, 255, 255, 0.7);
+    text-decoration: line-through rgba(255, 255, 255, 0.7);
     color: rgba(255, 255, 255, 1);
 }
 
@@ -80,6 +80,7 @@
     left: 50%;
     width: 0;
     height: 2px; 
+    margin-left: 5px;
     background: white; 
     transition: width 0.4s ease, left 0.4s ease;
 }
@@ -94,11 +95,21 @@
     margin: auto 5px;
 }
 .icon{
-    display: inline;
-    margin: 5px 15px 5px 5px;
+    display: flex;
+    padding: 5px;
+    border: none;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+.icon img{
     max-width: 16px;
     max-height: 16px;
     color: rgba(255, 255, 255, 0.35);
+    background: transparent;
+}
+.icon:hover{
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
 }
 .icons{
     display: flex;
@@ -116,6 +127,7 @@
 .view button:hover{
     background: rgba(255, 255, 255, 0.2);
     transform: scale(1.05);
+    cursor: pointer;
 }
 .title{
     flex: 1;
@@ -134,7 +146,7 @@
 }
 .title h1{
     font-family: "Playfair Display";
-    font-size: 80px;
+    font-size: 4vw;
     font-weight: 400;
     line-height: 110px;
     letter-spacing: 0%;
@@ -192,22 +204,20 @@
 }
 .preview img{
     flex: 1;
-    max-width: 600px;
-    max-height: 600px;
-    background: rgb(196, 196, 196);
+    max-width: 35vw;
+    max-height: 35vw;
+    background: transparent;
 }
 .ingredient, .foods{
     display: flex;
     align-items: center;
-    min-width: 50px;
-    min-height: 20px;
-    max-width: 250px;
-    max-height: 100px;
+    max-width: 15vw;
+    max-height: 5vw;
     margin-top: 5%;
     margin-left: -20%;
     box-sizing: border-box;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 20px;
+    border-radius: 1vw;
     backdrop-filter: blur(41px);
     background: rgba(255, 255, 255, 0.08);
 }
@@ -217,14 +227,146 @@
 }
 #ingredient, #foods{
     background: transparent;
-    margin: auto 15px;
+    margin: auto 1vw;
+    font-size: 0.8vw;
 }
 .ingredient div, .foods div{
-    border-radius: 10px;
+    border-radius: 1vw;
     background: rgba(255, 255, 255, 0.1);
-    padding: 16px;
-    margin-left: 20px;
+    padding: 1vw;
+    margin-left: 0.5vw;
 }
 .ingredient div img, .foods div img{
     background: transparent;
+    max-width: 2vw;
+    max-height: 2vw;
+}
+footer{
+    padding: 100px 200px;
+    backdrop-filter: blur(41px);
+    background: rgba(255, 255, 255, 0.08);
+}
+footer *{
+    background: transparent;
+}
+footer h2{
+    color: rgb(255, 255, 255);
+    font-family: Playfair Display;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 100%;
+}
+.footer_info{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.footer_logo{
+    flex: 1;
+}
+.footer_logo h2{
+    margin-bottom: 30px;
+}
+.footer_logo p{
+    color: rgba(255, 255, 255, 0.63);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 30px;
+    margin-bottom: 110px;
+}
+.footer_contacts{
+    flex: 3;
+    margin-left: 10%;
+}
+.footer_contacts h2{
+    margin-bottom: 35px;
+}
+.footer_contacts p{
+    color: rgb(119, 128, 139);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 150%;
+    margin-bottom: 26px;
+}
+.container_email{
+    display: flex;
+    margin-bottom: 40px;
+}
+#email_line{
+    box-sizing: border-box;
+    border: 1.33px solid rgba(255, 255, 255, 0.27);
+    border-radius: 11px;
+    padding: 18px;
+    min-width: 300px;
+    background: rgba(255, 255, 255, 0.08);
+    margin-right: 10px;
+}
+.subscribe{
+    padding: 18px 50px 18px 50px;
+    border-radius: 10.67px;
+    background: rgb(255, 255, 255);
+    color: black;
+    border: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 150%;
+}
+.subscribe:hover{
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.7);
+}
+.container_links a{
+    border-radius: 50%;
+    background: white;
+    width: 40px;
+    height: 40px;
+    margin: auto 10px;
+    padding: 15px;
+}
+.container_links a img{
+    width: 15px;
+    height: 15px;
+    color: black;
+    background: transparent;
+}
+.footer_explore{
+    flex: 1;
+}
+.footer_explore h2{
+    margin-bottom: 35px;
+}
+.footer_explore a{
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.63);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 36px;
+}
+.footer_links {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+.footer_links h2{
+    margin-bottom: 35px;
+}
+.footer_links a{
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.63);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 30px;
+}
+
+a.active{
+    text-decoration: line-through rgba(255, 255, 255, 0.7);
+}
+
+.separator{
+    border: 2px solid rgba(255, 255, 255, 0.15);
 }
