@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Аккаунт</title>
+    <title>Авторизация</title>
     <link rel="stylesheet" href="./styles/account.css">
+    <link rel="stylesheet" href="styles/menu/menu-all.css">
+    <link rel="stylesheet" href="styles/animation/slidein.css">
 </head>
 <body>
     <!-- Заголовок сайта -->
@@ -14,8 +16,8 @@
             <p>Ресторан</p>
         </nav>
         <div class="menu">
-            <a href="./index.html" class="home active">Домашняя страница</a>
-            <a href="#" class="about">О нас</a>
+            <a href="./index.html" class="home">Домашняя страница</a>
+            <a href="./about.html" class="about">О нас</a>
             <a href="#" class="food">Блюда</a>
         </div>
         <div class="icons">
@@ -31,16 +33,59 @@
         </div>
     </nav>
     
-    <div class="profile">
-        <nav>
-            <div class="personal">
-                <label for="first-name">Фамилия</label>
-                <input id="first-name" type="text">
-                <label for="name">Имя</label>
-                <input id="name" type="text">
+    <div class="auth-wrapper slide-in">
+        <div class="auth-image">
+            <div></div>
+            <img src="./examples/eat1.png" alt="eat">
+        </div>
+        <div class="auth-form-container">
+            <div class="auth-container">
+                <div class="auth-tabs">
+                    <button id="loginTab" class="active enter">Вход</button>
+                    <button id="registerTab" class="enter">Регистрация</button>
+                </div>
+                <!-- Форма входа -->
+                <div id="loginForm" class="auth-form active">
+                    <div>
+                        <label>
+                            <input type="email" placeholder="Почта/Логин">
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="password" placeholder="Пароль" required>
+                        </label>
+                    </div>
+                    <button type="submit">Войти</button>
+                </div>
+                <!-- Форма регистрации -->
+                <div id="registerForm" class="auth-form">
+                    <div>
+                        <label>
+                            <input type="text" placeholder="Имя" required>
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="email" placeholder="Email" required>
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="password" placeholder="Пароль" required>
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="password" placeholder="Подтвердите пароль" required>
+                        </label>
+                    </div>
+                    <button type="submit">Зарегистрироваться</button>
+                </div>
             </div>
-            <img src="#" alt="">
-        </nav>
+        </div>
     </div>
+
+    <script src="./scripts/account.js"></script>
 </body>
 </html>

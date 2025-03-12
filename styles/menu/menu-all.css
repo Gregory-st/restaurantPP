@@ -1,0 +1,71 @@
+.navbar{
+    margin: 2rem 6rem;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-around;
+}
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    font-weight: bolder;
+    flex: auto;
+    font-size: 20px;
+}
+.logo img{
+    max-width: 20px;
+    max-height: 20px;
+    margin: auto 5px;
+}
+.menu{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-around;
+    flex:content
+}
+.menu a{
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.7);
+}
+.menu a:hover{
+    text-decoration: line-through rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 1);
+}
+.icons{
+    display: flex;
+    justify-content: end;
+    flex: auto;
+}
+.icons img{
+    width: 20px;
+    height: 20px;
+    margin: auto 1vw;
+}
+
+.profile{
+    display: block;
+    position: absolute;
+    border-radius: 30px;
+    min-width: 50vw;
+    min-height: 20vw;
+    left: calc(50% - 25vw);
+    top: calc(50% - 10vw);
+    background: rgba(255, 255, 255, 0.7);
+}
+.profile *{
+    background: transparent;
+}
+.profile nav{
+    display: flex;
+    margin: 10px 60px;
+}
+.personal{
+    display: flex;
+    flex-direction: column;
+}
+
+a.active{
+    text-decoration: line-through rgba(255, 255, 255, 0.7);
+}

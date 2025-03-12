@@ -1,0 +1,89 @@
+*{
+    background: black;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.about-content {
+    margin: 81px 6rem;
+    display: flex;
+    gap: 4vw;
+}
+
+.about-story {
+    flex: 1;
+    padding-right: 5vw;
+}
+
+.about-story h1 {
+    font-family: "Playfair Display";
+    font-size: 4vw;
+    margin-bottom: 2rem;
+}
+.about-story h2{
+    font-size: 1.5vw;
+    font-family: "Playfair Display";
+}
+
+.about-text {
+    color: rgba(255, 255, 255, 0.63);
+    font-size: 1.1vw;
+    line-height: 1.8;
+    border-left: 2px solid rgba(255, 255, 255, 0.3);
+    padding-left: 2vw;
+    margin-bottom: 3rem;
+}
+
+.signature {
+    font-family: "Playfair Display";
+    font-style: italic;
+    font-size: 1.5vw;
+}
+
+.about-visual {
+    flex: 1;
+    position: relative;
+}
+.about-visual *{
+    background: transparent;
+}
+
+.chef-image {
+    width: 35vw;
+    height: 45vw;
+    object-fit: cover;
+    border-radius: 1vw;
+    backdrop-filter: blur(41px);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.ingredients-overlay {
+    position: absolute;
+    bottom: -3vw;
+    right: -3vw;
+    min-height: 10vw;
+    border-radius: 1vw;
+    padding: 1px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.ingredients-overlay img{
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 1vw;
+    filter: blur(5px);
+}
+.ingredients-overlay p{
+    position: absolute;
+    font-family: "Playfair Display";
+    font-size: 2vw;
+    left: calc(50% - 8vw);
+    top: calc(50% - 3.2vw);
+}
+
+.culinary {
+    font-size: 2vw;
+}

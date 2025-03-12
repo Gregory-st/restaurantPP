@@ -1,0 +1,104 @@
+.navbar{
+    margin: 2rem 6rem;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-around;
+}
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    flex: 1;
+    font-weight: bolder;
+    font-size: 20px;
+}
+.logo img{
+    max-width: 20px;
+    max-height: 20px;
+    margin: auto 5px;
+}
+.menu{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-around;
+    flex: 4;
+    margin: auto 5%;
+}
+.menu a{
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.7);
+}
+.menu a:hover{
+    text-decoration: line-through rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 1);
+}
+
+.search{
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.47);
+    border-radius: 100px;
+    flex: 5;
+    margin: auto 20px;
+    min-height: 35px;
+}
+.search-lable{
+    flex: 1;
+    margin: 5px;
+    position: relative;
+    display: inline-block;
+}
+.search-lable::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px; 
+    margin-left: 5px;
+    background: white; 
+    transition: width 0.4s ease, left 0.4s ease;
+}
+.search-lable:focus-within::after{
+    width: 100%;
+    left: 0;
+}
+.search-line{
+    width: 100%;
+    border: none;
+    outline: none;
+    margin: auto 5px;
+}
+.icon{
+    display: flex;
+    padding: 5px;
+    border: none;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+.icon img{
+    max-width: 16px;
+    max-height: 16px;
+    color: rgba(255, 255, 255, 0.35);
+    background: transparent;
+}
+.icon:hover{
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+}
+.icons{
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+}
+.icons img{
+    width: 20px;
+    height: 20px;
+}
+
+a.active{
+    text-decoration: line-through rgba(255, 255, 255, 0.7);
+}

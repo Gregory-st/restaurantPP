@@ -7,6 +7,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/menu/menu-index.css">
+    <link rel="stylesheet" href="styles/animation/slidein.css">
 </head>
 <body>
     <!-- Заголовок сайта -->
@@ -17,7 +19,7 @@
         </nav>
         <div class="menu">
             <a href="#" class="home active">Домашняя страница</a>
-            <a href="#" class="about">О нас</a>
+            <a href="./about.html" class="about">О нас</a>
             <a href="#" class="food">Блюда</a>
         </div>
         <div class="search">
@@ -61,14 +63,14 @@
                 <div>
                     <img src="./examples/fork_spoon.png" alt="fork_spoon">
                 </div>
-                <p id="foods">Lorem ipsum dolor sit.</p>
+                <p id="foods">Приготовим и принесём всё быстро</p>
             </button>
             <img id="imagepreview" src="./examples/eat1.png" alt="">
             <button class="ingredient" type="button">
                 <div>
                     <img src="./examples/package_2.png" alt="package_2">
                 </div>
-                <p id="ingredient">Lorem ipsum dolor sit.</p>
+                <p id="ingredient">Упакуем с собой</p>
             </button>
         </div>
     </div>
@@ -101,18 +103,31 @@
             </div>
             <div class="footer_explore">
                 <h2>Навигация</h2>
-                <a href="#">О нас</a>
+                <a href="about.html">О нас</a>
             </div>
             <div class="footer_links">
                 <h2>Ссылки</h2>
                 <a href="./account.html">Аккаунт</a>
-                <a href="#">abc2</a>
-                <a href="#">abc3</a>
-                <a href="#">abc4</a>
-                <a href="#">abc5</a>
             </div>
         </nav>
         <div class="separator"></div>
+        <div class="info">
+            <p>Современный кулинарный сайт</p>
+            <div class="contact">
+                <div>
+                    <img src="./examples/icon-geo.png" alt="">
+                    <a href="https://yandex.ru/maps/1093/maykop/house/ulitsa_khakurate_89/YEkYdwVmT00DQFpufXpwdH5rbA==/?ll=40.126683%2C44.615289&z=17.14">Addres</a>
+                </div>
+                <div>
+                    <img src="./examples/Icon-mail.png" alt="">
+                    <a href="mailto:mail@mail.ru">mail@mail.ru</a>
+                </div>
+                <div>
+                    <img src="./examples/icon-phone.png" alt="">
+                    <a href="tel:+75437587854">+75437587854</a>
+                </div>
+            </div>
+        </div>
     </footer>
 </body>
 </html>
