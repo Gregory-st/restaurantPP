@@ -1,0 +1,63 @@
+*{
+    background: black;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2{
+    font-family: "Playfair Display";
+}
+
+ul{
+    list-style-type: "- ";
+}
+
+.split-vertical{
+    border-right: solid 2px rgba(255, 255, 255, 0.5);
+}
+
+.split-horizontal{
+    border: solid 1px rgba(255, 255, 255, 0.5);
+}
+
+.container{
+    margin: auto 10%;
+    padding: 1vw;
+}
+
+.cart{
+    border: solid 1px white;
+    border-radius: 15px;
+    display: flex;
+    padding: 15px;
+}
+.cart img{
+    max-width: 300px;
+    max-height: 300px;
+    min-width: none;
+    min-height: auto;
+}
+.title, .price{
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px;
+}
+.title h1{
+    font-size: clamp(20px, 2vw, 35px);
+}
+.title li{
+    margin-left: 1vw;
+    margin-top: 5px;
+    font-size: clamp(10px, 1vw, 15px);
+}
+.title p{
+    flex: 1;
+    font-size: clamp(15px, 1vw, 20px);
+}
+.price{
+    flex: 1;
+}

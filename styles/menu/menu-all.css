@@ -11,11 +11,11 @@
     justify-content: left;
     font-weight: bolder;
     flex: auto;
-    font-size: 20px;
+    font-size: clamp(15px, 1vw, 20px);
 }
 .logo img{
-    max-width: 20px;
-    max-height: 20px;
+    max-width: clamp(15px, 1vw, 20px);
+    max-height: clamp(15px, 2vw, 20px);
     margin: auto 5px;
 }
 .menu{
@@ -28,6 +28,7 @@
 .menu a{
     text-decoration: none;
     color: rgba(255, 255, 255, 0.7);
+    font-size: clamp(10px, 1vw, 15px);
 }
 .menu a:hover{
     text-decoration: line-through rgba(255, 255, 255, 0.7);
@@ -39,8 +40,8 @@
     flex: auto;
 }
 .icons img{
-    width: 20px;
-    height: 20px;
+    width: clamp(15px, 1vw, 20px);
+    height: clamp(15px, 1vw, 20px);
     margin: auto 1vw;
 }
 
