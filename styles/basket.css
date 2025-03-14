@@ -27,16 +27,14 @@ ul{
 }
 
 .cart{
-    border: solid 1px white;
     border-radius: 15px;
     display: flex;
     padding: 15px;
+    box-shadow: 2px 2px 4px white;
 }
 .cart img{
-    max-width: 300px;
-    max-height: 300px;
-    min-width: none;
-    min-height: auto;
+    width: 15vw;
+    height: 15vw;
 }
 .title, .price{
     flex: 2;
@@ -45,6 +43,7 @@ ul{
     justify-content: space-between;
     gap: 10px;
     padding: 10px;
+    background: transparent;
 }
 .title h1{
     font-size: clamp(20px, 2vw, 35px);
@@ -52,7 +51,7 @@ ul{
 .title li{
     margin-left: 1vw;
     margin-top: 5px;
-    font-size: clamp(10px, 1vw, 15px);
+    font-size: clamp(15px, 1vw, 20px);
 }
 .title p{
     flex: 1;
@@ -60,4 +59,15 @@ ul{
 }
 .price{
     flex: 1;
+}
+.price h1{
+    font-size: clamp(20px, 2vw, 35px);
+}
+.price p{
+    font-size: clamp(15px, 1vw, 20px);
+}
+.container-image{
+    display: flex;
+    align-items: center;
+    background: transparent;
 }

@@ -221,6 +221,8 @@ footer h2{
     background: transparent;
 }
 .footer_explore{
+    display: flex;
+    flex-direction: column;
     flex: 1;
 }
 .footer_explore h2{
