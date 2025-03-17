@@ -9,8 +9,5 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("restaurant")
 @RequiredArgsConstructor
 public class MainController {
-  @GetMapping
-  public String getIndexPage(){
-    return "index";
-  }
+
 }

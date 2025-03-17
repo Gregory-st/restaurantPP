@@ -12,7 +12,7 @@
 	<artifactId>restaurant</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>restaurant</name>
-	<description>project for restourant</description>
+	<description>project for restaurant</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -42,13 +42,16 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
+		<!-- Библиотека дял запуска веб-сервиса -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		<!-- Библиотека для работы с JWT -->
 		<dependency>
-			<groupId>org.thymeleaf.extras</groupId>
-			<artifactId>thymeleaf-extras-springsecurity6</artifactId>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.9.1</version>
 		</dependency>
 
 		<dependency>
