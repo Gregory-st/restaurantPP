@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./styles/account.css">
     <link rel="stylesheet" href="styles/menu/menu-all.css">
     <link rel="stylesheet" href="styles/animation/slidein.css">
+    <link rel="stylesheet" href="styles/animation/error.css">
 </head>
 <body>
     <!-- Заголовок сайта -->
@@ -44,53 +45,56 @@
                     <button id="loginTab" class="active enter">Вход</button>
                     <button id="registerTab" class="enter">Регистрация</button>
                 </div>
+                <span id="error"> </span>
                 <!-- Форма входа -->
                 <div id="loginForm" class="auth-form active">
                     <div>
                         <label>
-                            <input type="email" placeholder="Почта/Логин">
+                            <input id="loginText" type="email" placeholder="Почта/Логин">
                         </label>
                     </div>
                     <div>
                         <label>
-                            <input type="password" placeholder="Пароль" required>
+                            <input id="passwordText" type="password" placeholder="Пароль" required>
                         </label>
                     </div>
-                    <button type="submit">Войти</button>
+                    <button id="loginButton" type="submit">Войти</button>
                 </div>
                 <!-- Форма регистрации -->
                 <div id="registerForm" class="auth-form">
                     <div>
                         <label>
-                            <input type="text" placeholder="Имя" required>
+                            <input id="nameUser" type="text" placeholder="Имя" required>
                         </label>
                     </div>
                     <div>
                         <label>
-                            <input type="email" placeholder="Почта" required>
+                            <input id="emailUser" type="email" placeholder="Почта" required>
                         </label>
                     </div>
                     <div>
                         <label>
-                            <input type="text" placeholder="Логин" required>
+                            <input id="loginUser" type="text" placeholder="Логин" required>
                         </label>
                     </div>
                     <div>
                         <label>
-                            <input type="password" placeholder="Пароль" required>
+                            <input id="passwordUser" type="password" placeholder="Пароль" required>
                         </label>
                     </div>
                     <div>
                         <label>
-                            <input type="password" placeholder="Подтвердите пароль" required>
+                            <input id="repeatPassword" type="password" placeholder="Подтвердите пароль" required>
                         </label>
                     </div>
-                    <button type="submit">Зарегистрироваться</button>
+                    <button id="registerButton" type="submit">Зарегистрироваться</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="./scripts/account.js"></script>
+    <script src="./scripts/account/account.js"></script>
+    <script src="./scripts/account/login.js"></script>
+    <script src="./scripts/account/registration.js"></script>
 </body>
 </html>

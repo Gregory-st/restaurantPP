@@ -115,3 +115,10 @@ button.enter:hover{
 .auth-form button:hover{
     transform: scale(1.05);
 }
+
+#error{
+    display: flex;
+    justify-content: center;
+    margin: 5px auto;
+    color: red;
+}
