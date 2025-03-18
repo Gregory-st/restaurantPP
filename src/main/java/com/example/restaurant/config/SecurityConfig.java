@@ -3,6 +3,7 @@ package com.example.restaurant.config;
 import com.example.restaurant.security.JwtAuthenticationFilter;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -22,6 +23,13 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 @RequiredArgsConstructor
 public class SecurityConfig {
 
+  @Value("${front.address}")
+  private String address;
+  @Value("${front.port}")
+  private Long port;
+
+  private final JwtAuthenticationFilter filter;
+
   @Bean
   public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
     return http
@@ -35,15 +43,22 @@ public class SecurityConfig {
                 .anyRequest().permitAll()
         )
         .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-        .addFilterBefore(new JwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class)
+        .addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class)
         .cors(Customizer.withDefaults())
         .build();
   }
 
   @Bean
   public CorsConfigurationSource corsConfigurationSource(){
+    StringBuilder origin;
+    origin = new StringBuilder();
+    origin.append("http://")
+        .append(address)
+        .append(":")
+        .append(port);
+
     CorsConfiguration configuration = new CorsConfiguration();
-    configuration.setAllowedOrigins(List.of("http://127.0.0.1:5500"));
+    configuration.setAllowedOrigins(List.of(origin.toString()));
     configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE"));
     configuration.setAllowedHeaders(List.of("Authorization", "Cache-Control", "Content-Type"));
     UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
