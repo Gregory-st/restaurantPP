@@ -148,3 +148,7 @@
     box-shadow: 0 0 15px red;
     cursor: pointer;
 }
+
+#error{
+    color: red;
+}

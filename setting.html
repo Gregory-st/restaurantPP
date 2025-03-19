@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./styles/menu/menu-all.css">
     <link rel="stylesheet" href="./styles/animation/slidein.css">
     <link rel="stylesheet" href="./styles/setting.css">
+    <link rel="stylesheet" href="./styles/animation/error.css">
 </head>
 <body>
     <!-- Заголовок сайта -->
@@ -60,15 +61,19 @@
         <div class="container-settings slide-in">
             <div class="setting" id="personal">
                 <h1>Личная информация</h1>
+                <span id="error"></span>
                 <div class="split"></div>
                 <label>
-                    <input type="text" placeholder="Электронная почта">
+                    <input id="email-user" type="text" placeholder="Электронная почта">
                 </label>
                 <label>
-                    <input type="text" placeholder="Имя">
+                    <input id="name-user" type="text" placeholder="Имя">
+                </label>
+                <label>
+                    <input id="login-user" type="text" placeholder="Логин">
                 </label>
                 <div>
-                    <button type="button">Сохранить</button>
+                    <button id="update-user" type="button">Сохранить</button>
                     <button type="button">Отменить</button>
                 </div>
             </div>
@@ -106,5 +111,7 @@
             </div>
         </div>
     </div>
+    <script type="module" src="./scripts/setting/setting-get.js"></script>
+    <script type="module" src="./scripts/setting/setting-update.js"></script>
 </body>
 </html>

@@ -1,12 +1,6 @@
-import func from "../module/function.js";
-const registerButton = document.getElementById('registerButton');
-function getParent(element, deep){
-    if(deep === 0)
-        return element;
-    
-    return getParent(element.parentElement, deep - 1);
-}
+import { getParent } from "../module/function.js";
 
+const registerButton = document.getElementById('registerButton');
 
 registerButton.addEventListener('click', (event) => {
     event.preventDefault();
@@ -54,7 +48,10 @@ registerButton.addEventListener('click', (event) => {
     parentPasswordRepeate.classList.remove('error');
     errorLine.textContent = " ";
 
-    fetch("http://localhost:8080/restaurant/auth/reg", {
+    let host = window.localStorage.getItem('host');
+    host += '/auth/reg'
+
+    fetch(host, {
         method: "POST",
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(
@@ -67,10 +64,12 @@ registerButton.addEventListener('click', (event) => {
     })
     .then(response => {
         if(response.ok) return response.json();
-        alert(response.body);
+
+        getParent(login, 2).classList.add('error');
+        throw new Error('Пользователь уже существует');
     })
     .then(data => {
         localStorage.setItem('jwt', data.token);
     })
-    .catch(error => console.log(error))
+    .catch(error => errorLine.textContent = error.message)
 });
