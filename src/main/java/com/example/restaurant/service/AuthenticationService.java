@@ -19,6 +19,12 @@ public class AuthenticationService {
   private final UserRepository userRepository;
 
   public String registration(RegistrationDto registrationDto){
+    boolean isExist = userRepository
+        .findUserEntitiesByLogin(registrationDto.login())
+        .isPresent();
+
+    if (isExist) return null;
+
     UserEntity user = UserEntity.builder()
         .name(registrationDto.name())
         .email(registrationDto.email())
@@ -34,8 +40,15 @@ public class AuthenticationService {
   }
 
   public String authentication(AuthDto authDto){
-    Optional<UserEntity> optionalUserEntity = userRepository
-        .findUserEntitiesByEmail(authDto.login());
+    Optional<UserEntity> optionalUserEntity;
+    if(authDto.login().contains("@")){
+      optionalUserEntity = userRepository
+          .findUserEntitiesByEmail(authDto.login());
+    }
+    else {
+      optionalUserEntity = userRepository
+          .findUserEntitiesByLogin(authDto.login());
+    }
 
     boolean isExist = optionalUserEntity
         .isPresent();

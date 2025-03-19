@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -31,17 +32,14 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
       String login = null;
       String prefix = "Bearer ";
 
-      if(authHeader != null && authHeader.startsWith(prefix)){
-        token = authHeader.substring(prefix.length());
-        try{
-          login = jwtService.extractLogin(token);
-        }
-        catch (Exception e){
-          log.error("Не верный токен");
+      if(authHeader == null || !authHeader.startsWith(prefix)){
+          log.error("Не верный токен: {}", token);
           filterChain.doFilter(request, response);
           return;
-        }
       }
+
+      token = authHeader.substring(prefix.length());
+      login = jwtService.extractLogin(token);
 
       if(login != null && SecurityContextHolder.getContext().getAuthentication() == null){
         if(jwtService.isTokenValid(token, login)){
@@ -51,6 +49,11 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                   null,
                   new ArrayList<>()
               );
+
+          authToken.setDetails(
+              new WebAuthenticationDetailsSource().buildDetails(request)
+          );
+
           SecurityContextHolder.getContext().setAuthentication(authToken);
         }
       }

@@ -1,8 +1,10 @@
 package com.example.restaurant.config;
 
 import com.example.restaurant.security.JwtAuthenticationFilter;
+import jakarta.servlet.http.HttpServletResponse;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,6 +20,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+@Log4j2
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
@@ -38,9 +41,17 @@ public class SecurityConfig {
             authManager -> authManager
                 .requestMatchers(HttpMethod.GET, "/restaurant/eats").permitAll()
                 .requestMatchers("/restaurant/auth/**").permitAll()
-                .requestMatchers("/restaurant/settings/**").authenticated()
+                .requestMatchers("/restaurant/setting/**").authenticated()
                 .requestMatchers("restaurant/basket/**").authenticated()
-                .anyRequest().permitAll()
+                .anyRequest().authenticated()
+        )
+        .exceptionHandling(exception ->
+                exception.authenticationEntryPoint(((request, response, authException) -> {
+                  log.warn("Токен не корректен");
+                    response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+                    response.setContentType("application/json;charset=UTF-8");
+                    response.getWriter().write("{\"message\": \"Требуется авторизация\"}");
+        }))
         )
         .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
         .addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class)
