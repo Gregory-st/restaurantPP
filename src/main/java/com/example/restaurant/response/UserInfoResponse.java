@@ -6,7 +6,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class UserInfoResponse {
+public class UserInfoResponse extends BaseResponse{
   private String name;
   private String email;
   private String login;

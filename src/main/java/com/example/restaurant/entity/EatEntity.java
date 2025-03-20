@@ -35,6 +35,7 @@ public class EatEntity {
   private int proteins;
   private int fats;
   private int carbon;
+  private String image;
 
   @OneToMany(cascade = CascadeType.ALL, mappedBy = "eat")
   private List<BasketEntity> baskets;

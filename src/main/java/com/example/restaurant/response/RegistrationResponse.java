@@ -9,6 +9,6 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class RegistrationResponse {
+public class RegistrationResponse extends BaseResponse{
   private String token;
 }
