@@ -149,6 +149,49 @@
     cursor: pointer;
 }
 
-#error{
+span{
     color: red;
+}
+.success{
+    color: green;
+}
+
+.modal{
+    display: none;
+    padding: 1vw;
+    position: fixed;
+    width: 50vw;
+    left: calc(50% - 25vw);
+    top: calc(50% - 5vw);
+    border: solid 1px white;
+    border-radius: 10px;
+    z-index: 1;
+}
+.modal-container{
+    display: flex;
+    gap: 5vw;
+}
+.modal-container button{
+    border: solid 1px white;
+    padding: 15px;
+    background: transparent;
+    border-radius: 15px 5px;
+    min-width: 10vw;
+    font-size: 14px;
+}
+.modal p{
+    margin-top: 1vw;
+}
+
+#confirm-modal:hover{
+    box-shadow: 0 0 10px red;
+    cursor: pointer;
+}
+#cancel-modal:hover{
+    box-shadow: 0 0 10px green;
+    cursor: pointer;
+}
+
+.blur{
+    filter: blur(5px);
 }

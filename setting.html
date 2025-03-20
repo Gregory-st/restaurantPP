@@ -37,7 +37,7 @@
         </div>
     </nav>
 
-    <div class="settings slide-in">
+    <div id="setting" class="settings slide-in">
         <div class="navigate">
             <div>
                 <img src="./examples/search.png" alt="">
@@ -54,14 +54,14 @@
             </div>
             <div class="split"></div>
             <div>
-                <button class="logout" type="button">Выйти из аккаунта</button>
+                <button id="logout-button" class="logout" type="button">Выйти из аккаунта</button>
             </div>
         </div>
 
         <div class="container-settings slide-in">
             <div class="setting" id="personal">
                 <h1>Личная информация</h1>
-                <span id="error"></span>
+                <span id="error-info"></span>
                 <div class="split"></div>
                 <label>
                     <input id="email-user" type="text" placeholder="Электронная почта">
@@ -74,7 +74,7 @@
                 </label>
                 <div>
                     <button id="update-user" type="button">Сохранить</button>
-                    <button type="button">Отменить</button>
+                    <button id="cancel-update" type="button">Отменить</button>
                 </div>
             </div>
 
@@ -82,16 +82,17 @@
 
             <div class="setting" id="security">
                 <h1>Безопастность</h1>
+                <span id="error-security"></span>
                 <div class="split"></div>
                 <label>
-                    <input type="password" placeholder="Старый пароль">
+                    <input id="password-user" type="password" placeholder="Старый пароль">
                 </label>
                 <label>
-                    <input type="password" placeholder="Новый пароль">
+                    <input id="repeat-password-user" type="password" placeholder="Новый пароль">
                 </label>
                 <div>
-                    <button type="button">Сохранить</button>
-                    <button type="button">Отменить</button>
+                    <button id="update-password" type="button">Сохранить</button>
+                    <button id="cancel-password" type="button">Отменить</button>
                 </div>
             </div>
 
@@ -102,7 +103,7 @@
                 <div class="split"></div>
                 <div class="title">
                     <p>Удалить аккаунт</p>
-                    <button type="button">Удалить</button>
+                    <button id="delete-user" type="button">Удалить</button>
                 </div>
                 <div class="title">
                     <p>Удалить историю заказов</p>
@@ -111,7 +112,21 @@
             </div>
         </div>
     </div>
+
+    <div id="modal" class="modal">
+        <h1 id="modal-title">Удаленение аккаунта</h1>
+        <p>Вы уверены что хотите удалить аккаунт? <br></p>
+        <div class="split"></div>
+        <div class="modal-container">
+            <button id="confirm-modal" type="button">Подтвердить</button>
+            <button id="cancel-modal" type="button">Отменить</button>
+        </div>
+    </div>
+
     <script type="module" src="./scripts/setting/setting-get.js"></script>
     <script type="module" src="./scripts/setting/setting-update.js"></script>
+    <script type="module" src="./scripts/setting/setting-password.js"></script>
+    <script type="module" src="./scripts/setting/setting-delete.js"></script>
+    <script type="module" src="./scripts/setting/setting-logout.js"></script>
 </body>
 </html>

@@ -15,3 +15,7 @@ export function setDataChilderByElement(parent, predicate){
             predicate(element);
     });
 }
+
+export function cloneTemplate(template){
+    return template.content.cloneNode(true);
+}

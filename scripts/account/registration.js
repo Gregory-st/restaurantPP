@@ -70,6 +70,7 @@ registerButton.addEventListener('click', (event) => {
     })
     .then(data => {
         localStorage.setItem('jwt', data.token);
+        window.location.href = './index.html'
     })
     .catch(error => errorLine.textContent = error.message)
 });

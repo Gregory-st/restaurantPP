@@ -44,25 +44,28 @@
         </div>
     </nav>
 
-    <div class="container">
-        <div class="cart slide-in">
-            <div class="container-image slide-in">
-                <img src="./examples/eat1.png" alt="">
-            </div>
-            <div class="container-content">
-                <h1>Салат</h1>
-                <div class="split"></div>
-                <div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam delectus dolores iusto quas. Eaque voluptates commodi fugiat. Quae quibusdam accusamus itaque voluptatibus deserunt. Itaque veniam incidunt, pariatur eaque soluta, nulla id nisi aliquam aspernatur illo sit iusto quidem inventore amet quos quo mollitia, illum dicta obcaecati voluptate maiores ex ea impedit ad. Voluptate, corrupti libero! Laborum cupiditate, facilis repudiandae, vel nemo ea aliquam hic totam neque quo modi perferendis excepturi voluptates sequi molestias earum. Aut amet exercitationem qui deleniti, corporis doloribus similique asperiores obcaecati odio, perferendis delectus dolor quam neque. Expedita dolorum blanditiis suscipit adipisci enim itaque eaque quasi ipsum.</p>
+    <div id="product-container" class="container">
+        <template id="product-template">
+            <div class="cart slide-in">
+                <div class="container-image slide-in">
+                    <img class="image-cart" src="./examples/eat1.png" alt="">
                 </div>
-                <div class="split"></div>
-                <div class="price">
-                    <p>Цена:</p>
-                    <p id="price">300 р.</p>
+                <div class="container-content">
+                    <h1 class="title-cart">Салат</h1>
+                    <div class="split"></div>
+                    <div>
+                        <p class="description-cart">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam delectus dolores iusto quas. Eaque voluptates commodi fugiat. Quae quibusdam accusamus itaque voluptatibus deserunt. Itaque veniam incidunt, pariatur eaque soluta, nulla id nisi aliquam aspernatur illo sit iusto quidem inventore amet quos quo mollitia, illum dicta obcaecati voluptate maiores ex ea impedit ad. Voluptate, corrupti libero! Laborum cupiditate, facilis repudiandae, vel nemo ea aliquam hic totam neque quo modi perferendis excepturi voluptates sequi molestias earum. Aut amet exercitationem qui deleniti, corporis doloribus similique asperiores obcaecati odio, perferendis delectus dolor quam neque. Expedita dolorum blanditiis suscipit adipisci enim itaque eaque quasi ipsum.</p>
+                    </div>
+                    <div class="split"></div>
+                    <div class="price">
+                        <p>Цена:</p>
+                        <p class="price-cart">300 р.</p>
+                    </div>
+                    <div class="split"></div>
+                    <button id="add-basket" type="button">Добавить в корзину</button>
                 </div>
-                <div class="split"></div>
-                <button id="add-basket" type="button">Добавить в корзину</button>
             </div>
-        </div>
+        </template>
+    </div>
 </body>
 </html>

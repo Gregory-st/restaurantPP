@@ -1,26 +1,26 @@
 import { getById, getParent } from "../module/function.js";
 
-const buttonUser = getById('update-user');
-const buttonUserCancel = getById('cancel-update');
+const buttonUser = getById('update-password');
+const buttonCancel = getById('cancel-password');
 
-const email = getById('email-user');
-const name = getById('name-user');
-const login = getById('login-user');
+const oldPassword = getById('password-user');
+const password = getById('repeat-password-user');
+const errorLine = getById('error-security');
 
-buttonUserCancel.addEventListener('click', (event) => {
+buttonCancel.addEventListener('click', (event) => {
     event.preventDefault();
 
-    location.reload();
+    oldPassword.value = '';
+    password.value = '';
+    errorLine.textContent = '';
 });
 
 buttonUser.addEventListener('click', (event) => {
     event.preventDefault();
 
-    const errorLine = getById('error-info');
-
     let isValid = true;
 
-    [email, name, login].forEach(i => {
+    [oldPassword, password].forEach(i => {
         let parent = getParent(i, 1);
         if(i.value.length === 0){
             if(isValid) isValid = false;
@@ -39,9 +39,9 @@ buttonUser.addEventListener('click', (event) => {
     errorLine.textContent = '';
 
     let host = window.localStorage.getItem('host');
-    host += '/account/setting/info';
+    host += '/account/setting/pass';
     const jwt = window.localStorage.getItem('jwt');
-    
+
     fetch(host, {
         method: 'PUT',
         headers:{
@@ -50,9 +50,8 @@ buttonUser.addEventListener('click', (event) => {
         },
         body: JSON.stringify(
         {
-            "email" : email.value,
-            "name" : name.value,
-            "login" : login.value
+            "oldPassword" : oldPassword.value,
+            "password" : password.value
         })
     })
     .then(response => {
@@ -61,7 +60,15 @@ buttonUser.addEventListener('click', (event) => {
     .then(data => {
         if(!data.success) throw new Error(data.message);
 
-        window.localStorage.setItem('jwt', data.token);
+        errorLine.textContent = 'Пароль успешно изменён!';
+        errorLine.classList.add('success');
+        oldPassword.classList.remove('error');
+        password.value = '';
+        oldPassword.value = '';
     })
-    .catch(error => console.log(error.message))
+    .catch(error => {
+        errorLine.textContent = error.message;
+        errorLine.classList.remove('success');
+        getParent(oldPassword, 1).classList.add('error');
+    })
 });
