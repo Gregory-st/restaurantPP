@@ -11,7 +11,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if(window.localStorage.getItem('host') === null) 
         window.localStorage.setItem('host', 'http://localhost:8080/restaurant');
 
+    if(window.localStorage.getItem('examples') === null)
+        window.localStorage.setItem('examples', './examples');
+
     if(window.localStorage.getItem('jwt') === null) return;
+
 
     links.forEach(i => i.setAttribute('href', './setting.html'));
 });

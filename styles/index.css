@@ -9,7 +9,7 @@
     display: flex;
     margin: 81px 6rem;
 }
-.view button:hover{
+.view a:hover, button:hover{
     background: rgba(255, 255, 255, 0.2);
     transform: scale(1.05);
     cursor: pointer;
@@ -20,7 +20,7 @@
 }
 .culinary{
     margin-bottom: 2rem;
-    padding: 3px 20px;
+    padding: 10px 20px;
     box-sizing: border-box;
     border: 1px solid rgba(255, 255, 255, 0.4);
     border-radius: 245px;    
@@ -28,6 +28,7 @@
     font-size: 16px;
     font-weight: 400;
     line-height: 30px;
+    text-decoration: none;
 }
 .title h1{
     font-family: "Playfair Display";
@@ -58,7 +59,7 @@
     box-sizing: border-box;
     border: 1px solid rgba(255, 255, 255, 0.4);
     border-radius: 7px;    
-    padding: 7px 20px;
+    padding: 15px 30px;
     color: rgb(255, 255, 255);
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
@@ -66,11 +67,12 @@
     line-height: 30px;
     letter-spacing: 0%;
     text-align: left;
+    text-decoration: none;
 }
 .market{
     position: relative;
     left: 80%;
-    bottom: 40%;
+    bottom: 30%;
     width: 60px;
     height: 60px;
     box-sizing: border-box;
@@ -79,7 +81,7 @@
     background: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
 }
-.market img{
+.market *{
     background: transparent;
 }
 .preview{

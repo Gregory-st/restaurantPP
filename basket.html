@@ -30,35 +30,39 @@
             <a href="./shop.html">
                 <img src="examples/sell.png" alt="sell" class="icon_sell">
             </a>
-            <a href="./account.html">
+            <a id="account-link" href="./account.html">
                 <img src="examples/account_circle.png" alt="account" class="icon_account">
             </a>
         </div>
     </nav>
 
-    <div class="container">
-        <div class="cart slide-in">
-            <div class="container-image slide-in">
-                <img src="./examples/eat1.png" alt="">
+    <div id="product-container" class="container">
+        <template id="template-cart">
+            <div class="cart slide-in" data-product-id="123">
+                <div class="container-image slide-in">
+                    <img class="image-cart" src="./examples/eat1.png" alt="">
+                </div>
+                <div class="title split-vertical slide-in">
+                    <h1 id="title">Салат</h1>
+                    <div class="split-horizontal"></div>
+                    <p id="description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus possimus sequi recusandae. Enim fuga eligendi in earum? Maxime nostrum esse minima amet exercitationem nobis, dicta laudantium ex molestiae sit tempora ut dolorem soluta praesentium laborum tempore molestias reprehenderit quia? Nemo corporis excepturi repudiandae necessitatibus maxime molestiae labore vero veritatis repellendus!</p>
+                    <ul>
+                        <h2>Пищевая ценность:</h2>
+                        <li id="B">Белки:</li>
+                        <li id="G">Жиры:</li>
+                        <li id="U">Углеводы:</li>
+                    </ul>
+                </div>
+                <div class="price slide-in">
+                    <h1>Цена</h1>
+                    <p id="wigth">Вес:</p>
+                    <p id="count">Количество:</p>
+                    <p id="price">Сумма:</p>
+                </div>
             </div>
-            <div class="title split-vertical slide-in">
-                <h1 id="title">Салат</h1>
-                <div class="split-horizontal"></div>
-                <p id="description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus possimus sequi recusandae. Enim fuga eligendi in earum? Maxime nostrum esse minima amet exercitationem nobis, dicta laudantium ex molestiae sit tempora ut dolorem soluta praesentium laborum tempore molestias reprehenderit quia? Nemo corporis excepturi repudiandae necessitatibus maxime molestiae labore vero veritatis repellendus!</p>
-                <ul>
-                    <h2>Пищевая ценность:</h2>
-                    <li id="B">Белки:</li>
-                    <li id="G">Жиры:</li>
-                    <li id="U">Углеводы:</li>
-                </ul>
-            </div>
-            <div class="price slide-in">
-                <h1>Цена</h1>
-                <p>Вес:</p>
-                <p>Количество:</p>
-                <p>Сумма:</p>
-            </div>
-        </div>
+        </template>
     </div>
+    <script type="module" src="./scripts/basket.js"></script>
+    <script src="./scripts/module/isAuthenticated.js"></script>
 </body>
 </html>

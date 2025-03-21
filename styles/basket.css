@@ -30,7 +30,8 @@ ul{
     border-radius: 15px;
     display: flex;
     padding: 15px;
-    box-shadow: 2px 2px 4px white;
+    box-shadow: 1px 1px 4px white;
+    margin-bottom: 2vw;
 }
 .cart img{
     width: 15vw;

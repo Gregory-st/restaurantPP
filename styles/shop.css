@@ -89,3 +89,16 @@ h1{
     background: rgba(255, 255, 255, 0.3);
     cursor: pointer;
 }
+
+#banner{
+    position: absolute;
+    width: 10vw;
+    left: calc(50% - 5vw);
+    top: 4vw;
+    display: flex;
+    justify-content: center;
+    border: solid 1px white;
+    border-radius: 20px;
+    padding: 10px;
+    opacity: 0;
+}
