@@ -2,6 +2,7 @@ package com.example.restaurant.config;
 
 import com.example.restaurant.security.JwtAuthenticationFilter;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.Arrays;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -26,10 +27,8 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 @RequiredArgsConstructor
 public class SecurityConfig {
 
-  @Value("${front.address}")
-  private String address;
-  @Value("${front.port}")
-  private Long port;
+  @Value("${front.hosts}")
+  private String hosts;
 
   private final JwtAuthenticationFilter filter;
 
@@ -39,18 +38,15 @@ public class SecurityConfig {
         .csrf(AbstractHttpConfigurer::disable)
         .authorizeHttpRequests(
             authManager -> authManager
-                .requestMatchers(HttpMethod.GET, "/restaurant/eats").permitAll()
+                .requestMatchers(HttpMethod.GET, "/restaurant/shop").permitAll()
                 .requestMatchers("/restaurant/auth/**").permitAll()
                 .requestMatchers("/restaurant/setting/**").authenticated()
-                .requestMatchers("restaurant/basket/**").authenticated()
                 .anyRequest().authenticated()
         )
         .exceptionHandling(exception ->
                 exception.authenticationEntryPoint(((request, response, authException) -> {
                   log.warn("Токен не корректен");
                     response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-                    response.setContentType("application/json;charset=UTF-8");
-                    response.getWriter().write("{\"message\": \"Требуется авторизация\"}");
         }))
         )
         .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
@@ -61,15 +57,11 @@ public class SecurityConfig {
 
   @Bean
   public CorsConfigurationSource corsConfigurationSource(){
-    StringBuilder origin;
-    origin = new StringBuilder();
-    origin.append("http://")
-        .append(address)
-        .append(":")
-        .append(port);
+    List<String> origins = Arrays.stream(hosts.split(","))
+        .toList();
 
     CorsConfiguration configuration = new CorsConfiguration();
-    configuration.setAllowedOrigins(List.of(origin.toString()));
+    configuration.setAllowedOrigins(origins);
     configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE"));
     configuration.setAllowedHeaders(List.of("Authorization", "Cache-Control", "Content-Type"));
     UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();

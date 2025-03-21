@@ -32,13 +32,20 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
       String login = null;
       String prefix = "Bearer ";
 
-      if(authHeader == null || !authHeader.startsWith(prefix)){
-          log.error("Не верный токен: {}", token);
+      if(authHeader == null || !authHeader.startsWith(prefix) || authHeader.length() < 8){
+          log.warn("Не верный токен: {}", token);
           filterChain.doFilter(request, response);
           return;
       }
 
       token = authHeader.substring(prefix.length());
+
+      if(token.equals("null")) {
+        log.warn("Не верный токен: {}", token);
+        filterChain.doFilter(request, response);
+        return;
+      }
+
       login = jwtService.extractLogin(token);
 
       if(login != null && SecurityContextHolder.getContext().getAuthentication() == null){

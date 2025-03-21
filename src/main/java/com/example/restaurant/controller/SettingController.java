@@ -42,7 +42,7 @@ public class SettingController {
     if(!isValidLength(authHeader)){
       return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
           .body(
-              new BaseResponse("Требуется авторизация", false)
+              new BaseResponse("Требуется авторизация", false, 0)
           );
     }
 
@@ -104,7 +104,7 @@ public class SettingController {
     log.info("Пользователь удалён");
 
     return ResponseEntity.ok(
-        new BaseResponse("Пользователь удалён", true)
+        new BaseResponse("Пользователь удалён", true, 1)
     );
   }
 }

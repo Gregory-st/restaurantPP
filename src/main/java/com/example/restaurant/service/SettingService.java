@@ -3,6 +3,7 @@ package com.example.restaurant.service;
 import com.example.restaurant.dto.UpdatePasswordDto;
 import com.example.restaurant.dto.UpdateUserDto;
 import com.example.restaurant.entity.UserEntity;
+import com.example.restaurant.exception.UndefinedUserByIdException;
 import com.example.restaurant.repository.UserRepository;
 import com.example.restaurant.security.JwtUtil;
 import lombok.RequiredArgsConstructor;
@@ -21,14 +22,22 @@ public class SettingService {
     String login = jwt.extractLogin(token);
     return userRepository
         .findUserEntitiesByLogin(login)
-        .orElseThrow();
+        .orElseGet(() ->
+            userRepository
+                .findUserEntitiesByEmail(login)
+                .orElseThrow(UndefinedUserByIdException::new)
+        );
   }
 
   public String updateUser(String token, UpdateUserDto updateDto){
     String login = jwt.extractLogin(token);
     UserEntity user = userRepository
         .findUserEntitiesByLogin(login)
-        .orElseThrow();
+        .orElseGet(() ->
+            userRepository
+                .findUserEntitiesByEmail(login)
+                .orElseThrow(UndefinedUserByIdException::new)
+        );
 
     user.setEmail(updateDto.email());
     user.setName(updateDto.name());
@@ -43,7 +52,11 @@ public class SettingService {
     String login = jwt.extractLogin(token);
     UserEntity user = userRepository
         .findUserEntitiesByLogin(login)
-        .orElseThrow();
+        .orElseGet(() ->
+            userRepository
+                .findUserEntitiesByEmail(login)
+                .orElseThrow(UndefinedUserByIdException::new)
+        );
 
     boolean isEquals = passwordEncoder.matches(
         passwordDto.oldPassword(),
@@ -65,7 +78,11 @@ public class SettingService {
     String login = jwt.extractLogin(token);
     UserEntity user = userRepository
         .findUserEntitiesByLogin(login)
-        .orElseThrow();
+        .orElseGet(() ->
+            userRepository
+                .findUserEntitiesByEmail(login)
+                .orElseThrow(UndefinedUserByIdException::new)
+        );
 
     userRepository.delete(user);
   }

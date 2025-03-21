@@ -3,6 +3,7 @@ package com.example.restaurant.service;
 import com.example.restaurant.dto.AuthDto;
 import com.example.restaurant.dto.RegistrationDto;
 import com.example.restaurant.entity.UserEntity;
+import com.example.restaurant.exception.UndefinedUserByIdException;
 import com.example.restaurant.repository.UserRepository;
 import com.example.restaurant.security.JwtUtil;
 import java.util.Optional;
@@ -61,5 +62,16 @@ public class AuthenticationService {
     if(!isValid) return null;
 
     return jwt.generateToken(authDto.login());
+  }
+
+  public UserEntity getByToken(String token){
+      String login = jwt.extractLogin(token);
+      return userRepository
+          .findUserEntitiesByLogin(login)
+          .orElseGet(() ->
+              userRepository
+                  .findUserEntitiesByEmail(login)
+                  .orElseThrow(UndefinedUserByIdException::new)
+          );
   }
 }

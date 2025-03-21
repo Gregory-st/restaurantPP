@@ -12,14 +12,8 @@
       "defaultValue": 86400000
     },
     {
-      "name": "front.address",
+      "name": "front.hosts",
       "type": "java.lang.String",
       "description": "Description for front.address."
-    },
-    {
-      "name": "front.port",
-      "type": "java.lang.Long",
-      "description": "Description for front.port.",
-      "defaultValue": 5500
     }
   ] }

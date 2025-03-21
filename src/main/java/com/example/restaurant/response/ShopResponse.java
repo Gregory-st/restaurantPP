@@ -1,6 +1,5 @@
 package com.example.restaurant.response;
 
-import com.example.restaurant.entity.EatEntity;
 import com.example.restaurant.model.EatModel;
 import java.util.List;
 import lombok.AccessLevel;

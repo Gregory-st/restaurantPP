@@ -5,12 +5,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Setter
 @Getter
-public class BaseResponse {
-  private String message;
-  private Boolean success;
-  private Integer code;
+public class DeleteResponse extends BaseResponse{
+  private Long id;
 }
