@@ -48,6 +48,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
       login = jwtService.extractLogin(token);
 
+      if(login == null) log.warn("Токен истёк");
+
       if(login != null && SecurityContextHolder.getContext().getAuthentication() == null){
         if(jwtService.isTokenValid(token, login)){
           UsernamePasswordAuthenticationToken authToken =

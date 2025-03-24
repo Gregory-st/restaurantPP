@@ -3,6 +3,7 @@ package com.example.restaurant.service;
 import com.example.restaurant.dto.UpdatePasswordDto;
 import com.example.restaurant.dto.UpdateUserDto;
 import com.example.restaurant.entity.UserEntity;
+import com.example.restaurant.exception.ExpiredJwtTokenException;
 import com.example.restaurant.exception.UndefinedUserByIdException;
 import com.example.restaurant.repository.UserRepository;
 import com.example.restaurant.security.JwtUtil;
@@ -19,6 +20,8 @@ public class SettingService {
   private final UserRepository userRepository;
 
   public UserEntity getUser(String token){
+    if(jwt.isTokenExpiration(token)) throw new ExpiredJwtTokenException("Токен истёк");
+
     String login = jwt.extractLogin(token);
     return userRepository
         .findUserEntitiesByLogin(login)

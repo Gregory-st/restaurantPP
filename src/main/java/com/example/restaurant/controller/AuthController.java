@@ -29,7 +29,7 @@ public class AuthController {
     AuthResponse response = new AuthResponse(token);
     if(token == null){
       log.warn("Incorrect login or password: {}", authDto.login());
-      return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Не верный логин или пароль");
+      return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Не верный логин или пароль");
     }
 
     log.info("Authentication User: {}", authDto.login());

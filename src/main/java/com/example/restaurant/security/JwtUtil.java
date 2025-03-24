@@ -1,5 +1,7 @@
 package com.example.restaurant.security;
 
+import com.example.restaurant.exception.ExpiredJwtTokenException;
+import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
@@ -27,11 +29,18 @@ public class JwtUtil {
   }
 
   public String extractLogin(String token){
-    return Jwts.parser()
-        .setSigningKey(getSignKey(SECRET_KEY))
-        .parseClaimsJws(token)
-        .getBody()
-        .getSubject();
+    try {
+      if (isTokenExpiration(token))
+        return null;
+      return Jwts.parser()
+          .setSigningKey(getSignKey(SECRET_KEY))
+          .parseClaimsJws(token)
+          .getBody()
+          .getSubject();
+    }
+    catch (ExpiredJwtException exception){
+      return null;
+    }
   }
 
   public boolean isTokenValid(String token, String login){
@@ -39,13 +48,18 @@ public class JwtUtil {
     return extractLogin.equals(login) && !isTokenExpiration(token);
   }
 
-  private boolean isTokenExpiration(String token){
-    return Jwts.parser()
-        .setSigningKey(getSignKey(SECRET_KEY))
-        .parseClaimsJws(token)
-        .getBody()
-        .getExpiration()
-        .before(new Date());
+  public boolean isTokenExpiration(String token){
+    try{
+      Date expirationDate =Jwts.parser()
+          .setSigningKey(getSignKey(SECRET_KEY))
+          .parseClaimsJws(token)
+          .getBody()
+          .getExpiration();
+      return expirationDate.before(new Date());
+    }
+    catch (ExpiredJwtException exception){
+      return true;
+    }
   }
   private Key getSignKey(String key){
     byte[] keyBytes = Decoders.BASE64.decode(key);

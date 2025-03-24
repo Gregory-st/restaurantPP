@@ -35,22 +35,32 @@ public class SettingController {
     return isValid;
   }
 
+  private ResponseEntity<BaseResponse> getUnauthorized(){
+    return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(
+        new BaseResponse("Требуется авторизация", false, 0)
+    );
+  }
+
   @GetMapping
   public ResponseEntity<BaseResponse> getInfo(
       @RequestHeader(name = "Authorization", required = false) String authHeader
   ){
     if(!isValidLength(authHeader)){
-      return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-          .body(
-              new BaseResponse("Требуется авторизация", false, 0)
-          );
+      return getUnauthorized();
     }
 
     String token = authHeader.substring(prefixAuthLen);
 
-    UserInfoResponse user = new UserInfoResponse(
-        service.getUser(token)
-    );
+    UserInfoResponse user;
+
+    try{
+      user = new UserInfoResponse(
+          service.getUser(token)
+      );
+    } catch (Exception e) {
+      return getUnauthorized();
+    }
+
     log.info("Получение данных о пользователе: {}", user.getLogin());
     return ResponseEntity.ok(user);
   }
@@ -62,6 +72,7 @@ public class SettingController {
   ){
     String token = authHeader.substring(prefixAuthLen);
     BaseResponse response;
+
     token = service.updateUser(token, updateDto);
 
     log.info("Обновление информации о пользователи логин: {}", updateDto.login());

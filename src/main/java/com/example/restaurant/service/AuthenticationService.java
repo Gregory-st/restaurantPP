@@ -3,9 +3,11 @@ package com.example.restaurant.service;
 import com.example.restaurant.dto.AuthDto;
 import com.example.restaurant.dto.RegistrationDto;
 import com.example.restaurant.entity.UserEntity;
+import com.example.restaurant.exception.ExpiredJwtTokenException;
 import com.example.restaurant.exception.UndefinedUserByIdException;
 import com.example.restaurant.repository.UserRepository;
 import com.example.restaurant.security.JwtUtil;
+import io.jsonwebtoken.ExpiredJwtException;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -65,6 +67,9 @@ public class AuthenticationService {
   }
 
   public UserEntity getByToken(String token){
+
+      if(jwt.isTokenExpiration(token)) throw new ExpiredJwtTokenException("Токен истёк");
+
       String login = jwt.extractLogin(token);
       return userRepository
           .findUserEntitiesByLogin(login)

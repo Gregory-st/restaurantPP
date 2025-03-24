@@ -1,5 +1,6 @@
 package com.example.restaurant.controller;
 
+import com.example.restaurant.exception.ExpiredJwtTokenException;
 import com.example.restaurant.response.BaseResponse;
 import com.example.restaurant.response.ShopResponse;
 import com.example.restaurant.service.BasketService;
@@ -35,9 +36,16 @@ public class BasketController {
     String token = headAuth.substring(7);
     BaseResponse response;
 
-    response = new ShopResponse(service.getBasket(token));
-    response.setCode(1);
-    response.setSuccess(true);
+    try{
+      response = new ShopResponse(service.getBasket(token));
+      response.setCode(1);
+      response.setSuccess(true);
+    } catch (Exception exception) {
+      return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+          .body(
+              new BaseResponse("Требуется авторизация", false, 0)
+          );
+    }
 
     return ResponseEntity.ok(response);
   }

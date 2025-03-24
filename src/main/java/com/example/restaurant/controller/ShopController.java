@@ -56,6 +56,10 @@ public class ShopController {
       return ResponseEntity.status(HttpStatus.BAD_REQUEST)
           .body(response);
     }
+    catch (Exception e){
+      return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+          .body(new BaseResponse("Требуется авторизация", false, 0));
+    }
 
     return ResponseEntity.ok(new BaseResponse("", true, 1));
   }

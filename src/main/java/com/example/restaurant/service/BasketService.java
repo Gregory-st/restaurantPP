@@ -3,6 +3,7 @@ package com.example.restaurant.service;
 import com.example.restaurant.entity.BasketEntity;
 import com.example.restaurant.entity.EatEntity;
 import com.example.restaurant.entity.UserEntity;
+import com.example.restaurant.exception.ExpiredJwtTokenException;
 import com.example.restaurant.model.EatModel;
 import com.example.restaurant.repository.BasketRepository;
 import com.example.restaurant.repository.ShopRepository;
@@ -22,7 +23,15 @@ public class BasketService {
   private final AuthenticationService service;
 
   public List<EatModel> getBasket(String token){
-    UserEntity user = service.getByToken(token);
+    UserEntity user;
+
+    try{
+      user = service.getByToken(token);
+    }
+    catch (ExpiredJwtTokenException exception){
+      throw new RuntimeException(exception);
+    }
+
     List<BasketEntity> basketEntities = repository.findAllByUser_Id(user.getId());
 
     return basketEntities

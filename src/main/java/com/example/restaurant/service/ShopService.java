@@ -4,6 +4,7 @@ import com.example.restaurant.dto.AddBasketDto;
 import com.example.restaurant.entity.BasketEntity;
 import com.example.restaurant.entity.EatEntity;
 import com.example.restaurant.entity.UserEntity;
+import com.example.restaurant.exception.ExpiredJwtTokenException;
 import com.example.restaurant.exception.UndefinedEatByIdException;
 import com.example.restaurant.model.EatModel;
 import com.example.restaurant.repository.BasketRepository;
@@ -29,7 +30,14 @@ public class ShopService {
   }
 
   public void addProductInBasket(AddBasketDto basketDto, String token) {
-    UserEntity user = authService.getByToken(token);
+    UserEntity user;
+
+    try {
+      user = authService.getByToken(token);
+    }
+    catch (ExpiredJwtTokenException exception){
+      throw new RuntimeException(exception);
+    }
 
     Long idProduct = basketDto.id();
 
