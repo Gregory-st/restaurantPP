@@ -7,47 +7,43 @@
 
 .view{
     display: flex;
-    margin: 81px 6rem;
+    margin: 6vw;
+    gap: 10px;
 }
 .view a:hover, button:hover{
     background: rgba(255, 255, 255, 0.2);
     transform: scale(1.05);
     cursor: pointer;
 }
-.title{
-    flex: 1;
-    margin-right: 4vw;
-}
 .culinary{
-    margin-bottom: 2rem;
-    padding: 10px 20px;
+    padding-left: clamp(10px, 1vw, 20px);
+    padding-right: clamp(10px, 1vw, 20px);
+    padding-top: clamp(5px, 1vw, 15px);
+    padding-bottom: clamp(5px, 1vw, 15px);
     box-sizing: border-box;
     border: 1px solid rgba(255, 255, 255, 0.4);
-    border-radius: 245px;    
+    border-radius: clamp(100px, 5vw, 245px);    
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
+    font-size: clamp(8px, 1vw, 16px);
     font-weight: 400;
-    line-height: 30px;
     text-decoration: none;
 }
 .title h1{
     font-family: "Playfair Display";
-    font-size: 4vw;
+    font-size: clamp(10px, 3vw, 50px);
     font-weight: 400;
-    line-height: 110px;
-    letter-spacing: 0%;
+    line-height: clamp(10px, 5vw, 100px);
 }
 .description{
-    margin-top: 83px;
-    margin-right: 40%;
+    margin-top: clamp(10px, 2vw, 83px);
 }
 .description h2{
     margin-left: 30%;
     color: rgba(255, 255, 255, 0.63);
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
+    font-size: clamp(8px, 1vw, 16px);
     font-weight: 400;
-    line-height: 30px;
+    line-height: clamp(5px, 2vw, 30px);
     letter-spacing: 0%;
     text-align: left;
 }
@@ -58,23 +54,22 @@
 .started{
     box-sizing: border-box;
     border: 1px solid rgba(255, 255, 255, 0.4);
-    border-radius: 7px;    
-    padding: 15px 30px;
+    border-radius: 7px;
+    padding: clamp(10px, 1vw, 16px);
     color: rgb(255, 255, 255);
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
+    font-size: clamp(10px, 1vw, 16px);
     font-weight: 400;
     line-height: 30px;
-    letter-spacing: 0%;
     text-align: left;
     text-decoration: none;
 }
 .market{
     position: relative;
-    left: 80%;
-    bottom: 30%;
-    width: 60px;
-    height: 60px;
+    left: 0;
+    bottom: clamp(150px, 5vw, 300px);
+    width: clamp(30px, 5vw, 60px);
+    height: clamp(30px, 5vw, 60px);
     box-sizing: border-box;
     border: 1px solid rgba(255, 255, 255, 0.4);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -84,10 +79,15 @@
 .market *{
     background: transparent;
 }
+
+.market img{
+    max-width: 2vw;
+    max-height: 2vw;
+}
+
 .preview{
     display: flex;
     justify-content: right;
-    flex: 1;
 }
 .preview img{
     flex: 1;
@@ -142,7 +142,7 @@ footer a:hover{
 footer h2{
     color: rgb(255, 255, 255);
     font-family: Playfair Display;
-    font-size: 1vw;
+    font-size: clamp(12px, 1vw, 20px);
     font-weight: 600;
     line-height: 100%;
 }
@@ -150,6 +150,7 @@ footer h2{
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    gap: 10px;
 }
 .footer_logo{
     flex: 1;
@@ -160,9 +161,9 @@ footer h2{
 .footer_logo p{
     color: rgba(255, 255, 255, 0.63);
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
+    font-size: clamp(10px, 1vw, 16px);
     font-weight: 300;
-    line-height: 30px;
+    line-height: clamp(5px, 2vw, 30px);
     margin-bottom: 110px;
 }
 .footer_contacts{
@@ -175,7 +176,7 @@ footer h2{
 .footer_contacts p{
     color: rgb(119, 128, 139);
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
+    font-size: clamp(10px, 1vw, 16px);
     font-weight: 400;
     line-height: 150%;
     margin-bottom: 26px;
@@ -183,42 +184,48 @@ footer h2{
 .container_email{
     display: flex;
     margin-bottom: 40px;
+    gap: 10px;
 }
 #email_line{
     box-sizing: border-box;
-    border: 1.33px solid rgba(255, 255, 255, 0.27);
+    border: 1px solid rgba(255, 255, 255, 0.27);
     border-radius: 11px;
-    padding: 18px;
-    min-width: 300px;
+    padding: clamp(12px, 1vw, 18px);
+    width: clamp(150px, 10vw, 600px);
     background: rgba(255, 255, 255, 0.08);
     margin-right: 10px;
 }
 .subscribe{
-    padding: 18px 50px 18px 50px;
-    border-radius: 10.67px;
+    padding: clamp(10px, 1vw, 20px);
+    border-radius: 10px;
     background: rgb(255, 255, 255);
     color: black;
     border: none;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
+    font-size: clamp(10px, 1vw, 14px);
     font-weight: 600;
-    line-height: 150%;
 }
 .subscribe:hover{
     cursor: pointer;
     background: rgba(255, 255, 255, 0.7);
 }
+.container_links{
+    display: flex;
+    gap: 10px;
+}
 .container_links a{
-    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10vw;
     background: white;
-    width: 40px;
-    height: 40px;
-    margin: auto 10px;
-    padding: 15px;
+    width: clamp(25px, 2vw, 30px);
+    height: clamp(25px, 2vw, 30px);
+    padding: clamp(10px, 1vw, 15px);
 }
 .container_links a img{
-    width: 15px;
-    height: 15px;
+    width: clamp(10px, 1vw, 16px);
+    height: clamp(10px, 1vw, 16px);
     color: black;
     background: transparent;
 }
@@ -234,9 +241,9 @@ footer h2{
     text-decoration: none;
     color: rgba(255, 255, 255, 0.63);
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
+    font-size: clamp(10px, 1vw, 16px);
     font-weight: 300;
-    line-height: 36px;
+    line-height: clamp(20px, 2vw, 36px);
 }
 .footer_links {
     display: flex;
@@ -250,9 +257,9 @@ footer h2{
     text-decoration: none;
     color: rgba(255, 255, 255, 0.63);
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
+    font-size: clamp(10px, 1vw, 16px);
     font-weight: 300;
-    line-height: 30px;
+    line-height: clamp(20px, 2vw, 30px);
 }
 
 .separator{
@@ -274,14 +281,14 @@ footer h2{
 }
 .contact div img{
     margin: auto 10px;
-    max-width: 20px;
-    max-height: 20px;
+    max-width: 2vw;
+    max-height: 2vw;
 }
 .contact a{
     text-decoration: none;
     color: rgba(255, 255, 255, 0.63);
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
+    font-size: clamp(10px, 1vw, 16px);
     font-weight: 300;
     line-height: 30px;
 }
@@ -289,7 +296,7 @@ footer h2{
     flex: 2;
     color: rgba(255, 255, 255, 0.63);
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
+    font-size: clamp(10px, 1vw, 16px);
     font-weight: 300;
     line-height: 30px;
 }

@@ -1,9 +1,10 @@
 .navbar{
-    margin: 2rem 6rem;
+    margin: 2vw 6vw;
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
     justify-content: space-around;
+    gap: 10px;
 }
 .logo{
     display: flex;
@@ -14,8 +15,7 @@
     font-size: clamp(15px, 1vw, 20px);
 }
 .logo img{
-    max-width: clamp(15px, 1vw, 20px);
-    max-height: clamp(15px, 2vw, 20px);
+    max-width: 2vw;
     margin: auto 5px;
 }
 .menu{
@@ -23,12 +23,13 @@
     flex-wrap: nowrap;
     align-items: center;
     justify-content: space-around;
-    flex:content
+    flex:content;
+    gap: clamp(5px, 1vw, 10px);
 }
 .menu a{
     text-decoration: none;
     color: rgba(255, 255, 255, 0.7);
-    font-size: clamp(10px, 1vw, 15px);
+    font-size: clamp(10px, 1vw, 16px);
 }
 .menu a:hover{
     text-decoration: line-through rgba(255, 255, 255, 0.7);

@@ -1,4 +1,4 @@
-import { getById, cloneTemplate, getParent } from "./module/function.js";
+import { getById, cloneTemplate, getParent } from "../module/function.js";
 
 const template = getById('template-cart');
 const container = getById('product-container');
@@ -34,8 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let host = window.localStorage.getItem('host');
     const jwt = window.localStorage.getItem('jwt');
     host += '/basket';
-    console.log(jwt);
-
+    
     fetch(host, {
         method: 'GET',
         headers: {
