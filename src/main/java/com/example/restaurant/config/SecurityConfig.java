@@ -40,6 +40,7 @@ public class SecurityConfig {
             authManager -> authManager
                 .requestMatchers(HttpMethod.GET, "/restaurant/shop").permitAll()
                 .requestMatchers("/restaurant/auth/**").permitAll()
+                .requestMatchers(HttpMethod.POST, "/restaurant/shop/add-eat").permitAll()
                 .requestMatchers("/restaurant/setting/**").authenticated()
                 .anyRequest().authenticated()
         )

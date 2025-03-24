@@ -1,6 +1,7 @@
 package com.example.restaurant.controller;
 
 import com.example.restaurant.dto.AddBasketDto;
+import com.example.restaurant.dto.AddEatDto;
 import com.example.restaurant.exception.UndefinedEatByIdException;
 import com.example.restaurant.response.BaseResponse;
 import com.example.restaurant.response.DeleteResponse;
@@ -63,4 +64,16 @@ public class ShopController {
 
     return ResponseEntity.ok(new BaseResponse("", true, 1));
   }
+
+  @PostMapping("/add-eat")
+  public ResponseEntity<BaseResponse> AddEat(
+          @RequestBody AddEatDto dto
+  )
+  {
+    service.addEat(dto);
+    return ResponseEntity.ok(
+            new BaseResponse("Успешно", true, 1)
+    );
+  }
+
 }

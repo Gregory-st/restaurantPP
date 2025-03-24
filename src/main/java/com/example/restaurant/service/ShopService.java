@@ -1,6 +1,7 @@
 package com.example.restaurant.service;
 
 import com.example.restaurant.dto.AddBasketDto;
+import com.example.restaurant.dto.AddEatDto;
 import com.example.restaurant.entity.BasketEntity;
 import com.example.restaurant.entity.EatEntity;
 import com.example.restaurant.entity.UserEntity;
@@ -57,5 +58,19 @@ public class ShopService {
     }
 
     basketRepository.save(basketEntity);
+  }
+
+  public void addEat(AddEatDto dto) {
+    EatEntity eatEntity = EatEntity.builder()
+            .name(dto.name())
+            .price(dto.price())
+            .image(dto.image())
+            .fats(dto.fats())
+            .carbon(dto.carbon())
+            .weight(dto.weight())
+            .proteins(dto.proteins())
+            .description(dto.description())
+            .build();
+    shopRepository.save(eatEntity);
   }
 }
