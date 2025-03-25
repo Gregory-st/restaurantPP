@@ -1,0 +1,28 @@
+@keyframes slideIn{
+    from{
+        transform: translateY(15%);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes slideInBottom{
+    from{
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to{
+        transform: translateY(15%);
+        opacity: 0;
+    }
+}
+
+.slide-in{
+    animation: slideIn 1s ease-out forwards;
+}
+.slide-in-reverse{
+    animation: slideIn 1s ease-out forwards, slideInBottom 1s ease-out forwards;
+    animation-delay: 0s, 2s;
+}

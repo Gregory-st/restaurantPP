@@ -1,0 +1,104 @@
+*{
+    background: black;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.split{
+    border: solid 1px white;
+    mask: linear-gradient(to right, white 40%, transparent 80%);
+}
+
+h1{
+    font-family: "Playfair Display";
+}
+
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 1vw 3vw;
+    padding: clamp(10px, 1vw, 20px);
+}
+.container * {
+    background: transparent;
+}
+
+.cart{
+    border-radius: 1vw;
+    padding: 1vw;
+    max-width: 20vw;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+.container-image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    flex: 2;
+}
+.container-image img{
+    width: 20vw;
+    height: 20vw;
+    mask: linear-gradient(to bottom, white 40%, transparent 80%);
+}
+
+.container-content{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.container-content h1{
+    font-size: clamp(15px, 2vw, 25px);
+}
+.container-content p{
+    font-size: clamp(10px, 1vw, 15px);
+}
+.container-content div{
+    overflow: auto;
+    max-height: 7vw;
+}
+.container-content div::-webkit-scrollbar{
+    background: transparent;
+    border: solid 1px white;
+    border-radius: 3vw;
+}
+.container-content div::-webkit-scrollbar-thumb{
+    background: white;
+    border-radius: 3vw;
+}
+.container-content div::-webkit-scrollbar-thumb:hover{
+    background: rgba(255, 255, 255, 0.5);
+}
+.price{
+    display: flex;
+    gap: 1vw;
+}
+#price{
+    flex: 1;
+}
+#add-basket{
+    padding: 0.5vw;
+    border: solid 1px white;
+    border-radius: 1vw;
+    font-size: clamp(10px, 1vw, 15px);
+}
+#add-basket:hover{
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+}
+
+#banner{
+    position: absolute;
+    width: 10vw;
+    left: calc(50% - 5vw);
+    top: 4vw;
+    display: flex;
+    justify-content: center;
+    border: solid 1px white;
+    border-radius: 20px;
+    padding: 10px;
+    opacity: 0;
+}

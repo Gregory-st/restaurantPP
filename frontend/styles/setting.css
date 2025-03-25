@@ -1,0 +1,197 @@
+*{
+    background: black;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.split{
+    border: solid 1px rgba(255, 255, 255, 0.4);
+    margin: 30px auto;
+}
+
+.settings{
+    display: flex;
+    margin: auto 20%;
+    padding: 10px;
+    gap: 10px;
+}
+
+.navigate{
+    flex: 1;
+    border-left: solid 2px white;
+    border-radius: 10px;
+    mask: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 60%);
+}
+.navigate div{
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+.navigate a{
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(10px, 1vw, 16px);
+    margin: 15px 15px;
+    flex: 1;
+}
+.navigate img{
+    max-width: 15px;
+    max-height: 15px;
+}
+.navigate a:hover{
+    text-decoration: line-through;
+}
+
+.container-settings{
+    display: block;
+    flex: 3;
+}
+
+.setting{
+    display: block;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+}
+.setting *{
+    background: transparent;
+    border: none;
+}
+.setting h1{
+    font-family: "Playfair Display";
+    font-size: clamp(15px, 2vw, 35px);
+    mask: linear-gradient(to left, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 1) 100%);
+}
+.setting label{
+    display: flex;
+    flex-direction: column;
+    border: solid 2px rgba(255, 255, 255, 0.1);
+    background: transparent;
+    border-radius: 10px;
+    padding: 3px 5px;
+    margin: clamp(10px, 1vw, 20px) auto;
+}
+.setting label::after{
+    content: "";
+    position: relative;
+    width: 0;
+    height: 2px;
+    left: 50%;
+    bottom: 0;
+    background: white;
+    transition: width 0.4s ease, left 0.4s ease;
+}
+.setting label:focus-within::after{
+    width: 100%;
+    left: 0;
+}
+.setting input{
+    flex: 1;
+    width: 100%;
+    outline: none;
+    font-size: clamp(10px, 1vw, 20px);
+    margin: 5px auto;
+}
+.setting button{
+    font-size: clamp(10px, 1vw, 15px);
+    background: rgba(255, 255, 255, 0.7);
+    color: black;
+    padding: 10px;
+    border-radius: clamp(10px, 1vw, 12px);
+    margin-top: clamp(10px, 1vw, 30px);
+    margin-right: clamp(20px, 1vw, 30px);
+}
+.setting .split{
+    border: solid 1px rgba(255, 255, 255, 0.4);
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+#danger{
+    box-shadow: 0 0 15px rgb(255, 0, 0);
+}
+.title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: clamp(10px, 1vw, 15px);
+    box-shadow: 0 0 5px white;
+    margin: 20px auto;
+    padding-left: 10px;
+}
+.title p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(10px, 1vw, 16px);
+    color: white;
+}
+.title button{
+    margin-bottom: clamp(10px, 1vw, 30px);
+    box-shadow: 0 0 7px red;
+    background: transparent;
+    color: white;
+}
+.setting button:hover{
+    background: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+}
+
+.logout{
+    border: none;
+    font-size: 15px;
+    padding: 10px;
+    border: solid 2px white;
+    border-radius: 10px;
+    color: white;
+}
+.logout:hover{
+    box-shadow: 0 0 15px red;
+    cursor: pointer;
+}
+
+span{
+    color: red;
+}
+.success{
+    color: green;
+}
+
+.modal{
+    display: none;
+    padding: 1vw;
+    position: fixed;
+    width: 50vw;
+    left: calc(50% - 25vw);
+    top: calc(50% - 5vw);
+    border: solid 1px white;
+    border-radius: 10px;
+    z-index: 1;
+}
+.modal-container{
+    display: flex;
+    gap: 5vw;
+}
+.modal-container button{
+    border: solid 1px white;
+    padding: 15px;
+    background: transparent;
+    border-radius: 15px 5px;
+    min-width: 10vw;
+    font-size: 14px;
+}
+.modal p{
+    margin-top: 1vw;
+}
+
+#confirm-modal:hover{
+    box-shadow: 0 0 10px red;
+    cursor: pointer;
+}
+#cancel-modal:hover{
+    box-shadow: 0 0 10px green;
+    cursor: pointer;
+}
+
+.blur{
+    filter: blur(5px);
+}

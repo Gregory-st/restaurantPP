@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Настройки</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/menu/menu-all.css">
+    <link rel="stylesheet" href="./styles/animation/slidein.css">
+    <link rel="stylesheet" href="./styles/setting.css">
+    <link rel="stylesheet" href="./styles/animation/error.css">
+</head>
+<body>
+    <!-- Заголовок сайта -->
+    <nav class="navbar">
+        <nav class="logo">
+            <img src="examples/local_dining.png" alt="logo">
+            <p>Ресторан</p>
+        </nav>
+        <div class="menu">
+            <a href="./index.html" class="home">Домашняя страница</a>
+            <a href="./about.html" class="about">О нас</a>
+            <a href="./shop.html" class="food">Блюда</a>
+        </div>
+        <div class="icons">
+            <a href="./basket.html" class="icon_shopping">
+                <img src="examples/shopping_cart.png" alt="shopping_card">
+            </a>
+            <a href="./shop.html">
+                <img src="examples/sell.png" alt="sell" class="icon_sell">
+            </a>
+            <a href="#">
+                <img src="examples/account_circle.png" alt="account" class="icon_account">
+            </a>
+        </div>
+    </nav>
+
+    <div id="setting" class="settings slide-in">
+        <div class="navigate">
+            <div>
+                <img src="./examples/search.png" alt="">
+                <a href="#personal">Личная информация</a>
+            </div>
+            <div>
+                <img src="./examples/search.png" alt="">
+                <a href="#security">Безопастность</a>
+            </div>
+            <div class="split"></div>
+            <div>
+                <img src="./examples/search.png" alt="">
+                <a href="#danger">Опасная зона</a>
+            </div>
+            <div class="split"></div>
+            <div>
+                <button id="logout-button" class="logout" type="button">Выйти из аккаунта</button>
+            </div>
+        </div>
+
+        <div class="container-settings slide-in">
+            <div class="setting" id="personal">
+                <h1>Личная информация</h1>
+                <span id="error-info"></span>
+                <div class="split"></div>
+                <label>
+                    <input id="email-user" type="text" placeholder="Электронная почта">
+                </label>
+                <label>
+                    <input id="name-user" type="text" placeholder="Имя">
+                </label>
+                <label>
+                    <input id="login-user" type="text" placeholder="Логин">
+                </label>
+                <div>
+                    <button id="update-user" type="button">Сохранить</button>
+                    <button id="cancel-update" type="button">Отменить</button>
+                </div>
+            </div>
+
+            <div class="split"></div>
+
+            <div class="setting" id="security">
+                <h1>Безопастность</h1>
+                <span id="error-security"></span>
+                <div class="split"></div>
+                <label>
+                    <input id="password-user" type="password" placeholder="Старый пароль">
+                </label>
+                <label>
+                    <input id="repeat-password-user" type="password" placeholder="Новый пароль">
+                </label>
+                <div>
+                    <button id="update-password" type="button">Сохранить</button>
+                    <button id="cancel-password" type="button">Отменить</button>
+                </div>
+            </div>
+
+            <div class="split"></div>
+
+            <div class="setting" id="danger">
+                <h1>Опасная зона</h1>
+                <div class="split"></div>
+                <div class="title">
+                    <p>Удалить аккаунт</p>
+                    <button id="delete-user" type="button">Удалить</button>
+                </div>
+                <div class="title">
+                    <p>Удалить историю заказов</p>
+                    <button type="button">Удалить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal" class="modal">
+        <h1 id="modal-title">Удаленение аккаунта</h1>
+        <p>Вы уверены что хотите удалить аккаунт? <br></p>
+        <div class="split"></div>
+        <div class="modal-container">
+            <button id="confirm-modal" type="button">Подтвердить</button>
+            <button id="cancel-modal" type="button">Отменить</button>
+        </div>
+    </div>
+
+    <script type="module" src="./scripts/setting/setting-get.js"></script>
+    <script type="module" src="./scripts/setting/setting-update.js"></script>
+    <script type="module" src="./scripts/setting/setting-password.js"></script>
+    <script type="module" src="./scripts/setting/setting-delete.js"></script>
+    <script type="module" src="./scripts/setting/setting-logout.js"></script>
+</body>
+</html>

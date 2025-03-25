@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Ресторан</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/menu/menu-index.css">
+    <link rel="stylesheet" href="styles/animation/slidein.css">
+</head>
+<body>
+    <!-- Заголовок сайта -->
+    <nav class="navbar">
+        <nav class="logo">
+            <img src="examples/local_dining.png" alt="logo">
+            <p>Ресторан</p>
+        </nav>
+        <div class="menu">
+            <a href="#" class="home active">Домашняя страница</a>
+            <a href="./about.html" class="about">О нас</a>
+            <a href="./shop.html" class="food">Блюда</a>
+        </div>
+        <div class="search">
+            <label class="search-lable">
+                <input type="text" class="search-line">
+            </label>
+            <button class="icon" type="button">
+                <img src="examples/search.png" alt="search">     
+            </button>
+        </div>
+        <div class="icons">
+            <a href="./basket.html" class="icon_shopping">
+                <img src="examples/shopping_cart.png" alt="shopping_card">
+            </a>
+            <a href="./shop.html">
+                <img src="examples/sell.png" alt="sell" class="icon_sell">
+            </a>
+            <a id="account-link-1" href="./account.html">
+                <img src="examples/account_circle.png" alt="account" class="icon_account">
+            </a>
+        </div>
+    </nav>
+
+    <!-- Содержимое страницы -->
+    <div class="view slide-in">
+        <div class="title">
+            <a class="culinary" href="./shop.html">Блюда</a>
+            <h1>Поднимите свои кулинарные впечатления на новый уровень</h1>
+            <div class="description">
+                <h2>Дайте волю своему внутреннему шеф-повару и окунитесь в мир исключительных вкусов. Откройте для себя идеальное сочетание современных кулинарных техник.</h2>
+                <div class="buttons">
+                    <a href="./account.html" class="started">Начать</a>
+                </div>
+            </div>
+            <button class="market">
+                <a href="./shop.html">
+                    <img src="./examples/shopping_bag.png" alt="shopping_bag">
+                </a>
+            </button>
+        </div>
+        <div class="preview slide-in">
+            <button class="foods" type="button">
+                <div>
+                    <img src="./examples/fork_spoon.png" alt="fork_spoon">
+                </div>
+                <p id="foods">Приготовим и принесём всё быстро</p>
+            </button>
+            <img id="imagepreview" src="./images/eat1.png" alt="">
+            <button class="ingredient" type="button">
+                <div>
+                    <img src="./examples/package_2.png" alt="package_2">
+                </div>
+                <p id="ingredient">Упакуем с собой</p>
+            </button>
+        </div>
+    </div>
+
+    <footer>
+        <nav class="footer_info">
+            <div class="footer_logo">
+                <h2>Ресторан</h2>
+                <p>Добро пожаловать в ресторан, где еда сочетается с творчеством и страстью.</p>
+                <p>Современный кулинарный сайт</p>
+            </div>
+            <div class="footer_contacts">
+                <h2>Подпишитесь на наши новости</h2>
+                <p>Ваша почта</p>
+                <div class="container_email">
+                    <input type="email" id="email_line" placeholder="Введите вашу почту">
+                    <button class="subscribe" type="button">Подписаться</button>
+                </div>
+                <div class="container_links">
+                    <a href="#">
+                        <img src="./examples/Vector.png" alt="">
+                    </a>
+                    <a href="#">
+                        <img src="./examples/Vector.png" alt="">
+                    </a>
+                    <a href="#">
+                        <img src="./examples/Vector.png" alt="">
+                    </a>
+                </div>
+            </div>
+            <div class="footer_explore">
+                <h2>Навигация</h2>
+                <a href="about.html">О нас</a>
+                <a href="./shop.html">Блюда</a>
+            </div>
+            <div class="footer_links">
+                <h2>Ссылки</h2>
+                <a id="account-link-2" href="./account.html">Аккаунт</a>
+                <a href="./basket.html">Корзина</a>
+            </div>
+        </nav>
+        <div class="separator"></div>
+        <div class="info">
+            <p>Современный кулинарный сайт</p>
+            <div class="contact">
+                <div>
+                    <img src="./examples/icon-geo.png" alt="">
+                    <a href="https://yandex.ru/maps/1093/maykop/house/ulitsa_khakurate_89/YEkYdwVmT00DQFpufXpwdH5rbA==/?ll=40.126683%2C44.615289&z=17.14">Addres</a>
+                </div>
+                <div>
+                    <img src="./examples/Icon-mail.png" alt="">
+                    <a href="mailto:mail@mail.ru">mail@mail.ru</a>
+                </div>
+                <div>
+                    <img src="./examples/icon-phone.png" alt="">
+                    <a href="tel:+75437587854">+75437587854</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="./scripts/index.js"></script>
+</body>
+</html>

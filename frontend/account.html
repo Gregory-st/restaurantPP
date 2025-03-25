@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторизация</title>
+    <link rel="stylesheet" href="./styles/account.css">
+    <link rel="stylesheet" href="styles/menu/menu-all.css">
+    <link rel="stylesheet" href="styles/animation/slidein.css">
+    <link rel="stylesheet" href="styles/animation/error.css">
+</head>
+<body>
+    <!-- Заголовок сайта -->
+    <nav class="navbar">
+        <nav class="logo">
+            <img src="examples/local_dining.png" alt="logo">
+            <p>Ресторан</p>
+        </nav>
+        <div class="menu">
+            <a href="./index.html" class="home">Домашняя страница</a>
+            <a href="./about.html" class="about">О нас</a>
+            <a href="./shop.html" class="food">Блюда</a>
+        </div>
+        <div class="icons">
+            <a href="./basket.html" class="icon_shopping">
+                <img src="examples/shopping_cart.png" alt="shopping_card">
+            </a>
+            <a href="./shop.html">
+                <img src="examples/sell.png" alt="sell" class="icon_sell">
+            </a>
+            <a href="./account.html">
+                <img src="examples/account_circle.png" alt="account" class="icon_account">
+            </a>
+        </div>
+    </nav>
+    
+    <div class="auth-wrapper slide-in">
+        <div class="auth-image">
+            <div></div>
+            <img src="./images/eat1.png" alt="eat">
+        </div>
+        <div class="auth-form-container">
+            <div class="auth-container">
+                <div class="auth-tabs">
+                    <button id="loginTab" class="active enter">Вход</button>
+                    <button id="registerTab" class="enter">Регистрация</button>
+                </div>
+                <span id="error"> </span>
+                <!-- Форма входа -->
+                <div id="loginForm" class="auth-form active">
+                    <div>
+                        <label>
+                            <input id="loginText" type="email" placeholder="Почта/Логин">
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input id="passwordText" type="password" placeholder="Пароль" required>
+                        </label>
+                    </div>
+                    <button id="loginButton" type="submit">Войти</button>
+                </div>
+                <!-- Форма регистрации -->
+                <div id="registerForm" class="auth-form">
+                    <div>
+                        <label>
+                            <input id="nameUser" type="text" placeholder="Имя" required>
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input id="emailUser" type="email" placeholder="Почта" required>
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input id="loginUser" type="text" placeholder="Логин" required>
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input id="passwordUser" type="password" placeholder="Пароль" required>
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input id="repeatPassword" type="password" placeholder="Подтвердите пароль" required>
+                        </label>
+                    </div>
+                    <button id="registerButton" type="submit">Зарегистрироваться</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="./scripts/account/account.js"></script>
+    <script type="module" src="./scripts/account/login.js"></script>
+    <script type="module" src="./scripts/account/registration.js"></script>
+</body>
+</html>
